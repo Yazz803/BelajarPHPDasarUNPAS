@@ -1,0 +1,78 @@
+jika ingin masuk ke dalam mysql sebagai admin, ketikan di cmd
+mysql -u root -p (kemudian pencet enter)
+jika diminta  masukan password, ketik aja enter, tidak usah diisi
+selamat anda masuk kedalam mysql di cmd :)
+
+
+database : phpdasar
+tabel : mahasiswa
+
+id yg tipe datanya int(integer)
+id int(3) "ukurannya 3 digit, dari 1-999"
+jika dibiarkan kosong maka dia akan mencari nilai terbesar, sesuai kapasitas penampungannya
+id nya jadikan primary key
+dan tambahkan auto_increment agar datanya akan otomatis bertambah 1
+
+id int primary key auto_increment
+nama varchar(100) => artinya maksimal 100 digit karakter
+nrp varchar(10)
+email varchar(100)
+jurusan varchar(100)
+gambar varchar(100)
+
+untuk membuat database, ketik "create database 'nama database'"
+cara untuk memakai database, ketik "use 'nama database'"
+maka saya akan memakai database ini kedepannya.
+
+varchar digunakan untuk memasukan huruf atau angka dimulai dari digit 1 sampai seterusnya sesuai yg kita buat
+contoh : nama varchar(100) maka ini harus memasukan huruf atau angka tapi tidak boleh melebihi 100 digit.
+char digunakan untuk menetapkan huruf atau angka, memastikan bahwa itu tidak kurang atau lebih dari yg kita tentukan
+contoh : nis char(8) maka ini diharuskan memasukan nilai 8digit, tidak boleh kurang atau lebih.
+
+show tables; =>digunakan untuk melihat daftar table yg dibuat pada sebuah database
+describe 'nama table'; => digunakan untuk melihat isi/struktur tablenya
+
+syntax mysql
+insert into 'nama table' values ('value1', 'value2', 'value3');
+ini dibacanya= masukan kedalam table 'apa' dan masukan nilai dari tiap tiap fieldnya, saat memasukan value, urutannya harus terurut mulai dari field yg pertama.
+
+jika ingin melihat value yg sudah dibuat, ketik =
+select * from 'nama table';
+dibacanya, pilih semua(tanda bintang itu artinya semua) field yg ada di table 'apa', nanti akan muncul semua value nya.
+
+jika ingin mengambil data satu saja dari table, ketik
+select 'nama field' from 'nama table';
+maka ini akan menampilkan data dari field nama
+
+jika ingin melihat data lebih dari satu, ketik
+select nama, nrp from mahasiswa;
+nama dan nrp adalah field dari table mahasiswa
+
+jika ingin melihat semua data, tapi hanya memasukan salah satu field dan valuenya, ketik
+select * from mahasiswa where nrp = '121086279';
+dibacanya, pilih semua(dan tampilkan) dari table mahasiswa yg dimana yang akan ditampilkan adalah nrp '121086279'
+
+jika ingin mengubah data(misalkan salah memasukan data), ketik 
+update mahasiswa set jurusan = 'TKJT' where id = 2;
+dibaca, perbarui table mahasiswa untuk field jurusan yg tadinya misalkan MPLB menjadi TKJT yg dimana yg akan diubah adalah id nomor 2
+jadi ini hanya akan memperbarui yg idnya 2 saja, id yg lain kayak id 1, 3 itu tidak akan berubah.
+update mahasiswa set jurusan = 'TKJT'; => jika hanya diketik sampai sini aja, maka semua data yg ada di field jurusan akan berubah semua.id 1,2,3,4,.. akan berubah.
+
+jika ingin menghapus data, ketik 
+delete from mahasiswa where id = 3;
+dibaca, hapus data dari table mahasiswa yg dimana yg akan dihapus adalah id nomor 3.
+
+jika ingin menghapus table, table mahasiswa misalkan, ketik
+drop table mahasiswa;
+maka ini akan menghapus semua table yang ada didalam databasenya, misalkan databasenya phpdasar, jadi table mahasiswa yg didatabse phpdasar akan terhapus semua
+
+jika ingin menghapus databse, nama databasenya misalkan phpdasar, ketik
+drop database phpdasar;
+maka ini akan menghapus database yg bernama phpdasar.
+
+
+
+
+
+
+

@@ -1,0 +1,256 @@
+Microsoft Windows [Version 10.0.16299.1087]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\Thinkpad X240>cd \
+
+C:\>cd xampp
+
+C:\xampp>cd mailoutput
+
+C:\xampp\mailoutput>
+C:\xampp\mailoutput>cd ..
+
+C:\xampp>cd mysql
+
+C:\xampp\mysql>cd bin
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 60
+Server version: 10.4.21-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'database' at line 1
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| testting           |
++--------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [(none)]> create database phpdasar;
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpdasar           |
+| phpmyadmin         |
+| test               |
+| testting           |
++--------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [(none)]> use phpdasar;
+Database changed
+MariaDB [phpdasar]> create table mahasiswa (
+    -> id int primary key auto_increment,
+    -> nama varchar(100),
+    -> nrp char(9),
+    -> email varchar(100),
+    -> jurusan varchar(100),
+    -> gambar varchar(100)
+    -> );
+Query OK, 0 rows affected (0.046 sec)
+
+MariaDB [phpdasar]> show tables;
++--------------------+
+| Tables_in_phpdasar |
++--------------------+
+| mahasiswa          |
++--------------------+
+1 row in set (0.000 sec)
+
+MariaDB [phpdasar]> describe mahasiswa;
++---------+--------------+------+-----+---------+----------------+
+| Field   | Type         | Null | Key | Default | Extra          |
++---------+--------------+------+-----+---------+----------------+
+| id      | int(11)      | NO   | PRI | NULL    | auto_increment |
+| nama    | varchar(100) | YES  |     | NULL    |                |
+| nrp     | char(9)      | YES  |     | NULL    |                |
+| email   | varchar(100) | YES  |     | NULL    |                |
+| jurusan | varchar(100) | YES  |     | NULL    |                |
+| gambar  | varchar(100) | YES  |     | NULL    |                |
++---------+--------------+------+-----+---------+----------------+
+6 rows in set (0.022 sec)
+
+MariaDB [phpdasar]> insert into mahasiswa values ('', 'Muhammad Yazid Akbar', '121086278', 'muhammadyazidakbar@smkwikrama.sch.id', 'Pengembangan Perangkat Lunak dan Gim', 'yazid.jpeg');
+Query OK, 1 row affected, 1 warning (0.007 sec)
+
+MariaDB [phpdasar]> select * mahasiswa;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'mahasiswa' at line 1
+MariaDB [phpdasar]> select * from mahasiswa;
++----+----------------------+-----------+--------------------------------------+--------------------------------------+------------+
+| id | nama                 | nrp       | email                                | jurusan                              | gambar     |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+------------+
+|  1 | Muhammad Yazid Akbar | 121086278 | muhammadyazidakbar@smkwikrama.sch.id | Pengembangan Perangkat Lunak dan Gim | yazid.jpeg |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+------------+
+1 row in set (0.000 sec)
+
+MariaDB [phpdasar]> insert into mahasiswa values ('', 'Habibi', '121090921', 'habibi@gmail.com', 'TKJT', 'habibi.png');
+Query OK, 1 row affected, 1 warning (0.006 sec)
+
+MariaDB [phpdasar]> select * from mahasiswa;
++----+----------------------+-----------+--------------------------------------+--------------------------------------+------------+
+| id | nama                 | nrp       | email                                | jurusan                              | gambar     |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+------------+
+|  1 | Muhammad Yazid Akbar | 121086278 | muhammadyazidakbar@smkwikrama.sch.id | Pengembangan Perangkat Lunak dan Gim | yazid.jpeg |
+|  2 | Habibi               | 121090921 | habibi@gmail.com                     | TKJT                                 | habibi.png |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+------------+
+2 rows in set (0.000 sec)
+
+MariaDB [phpdasar]> insert into mahasiswa values ('', 'Ambatukam', '129012023', 'ambatukam@gmail.com', 'MPLB', 'ambatukam.jpeg');
+Query OK, 1 row affected, 1 warning (0.006 sec)
+
+MariaDB [phpdasar]> select * from mahasiswa;
++----+----------------------+-----------+--------------------------------------+--------------------------------------+----------------+
+| id | nama                 | nrp       | email                                | jurusan                              | gambar         |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+----------------+
+|  1 | Muhammad Yazid Akbar | 121086278 | muhammadyazidakbar@smkwikrama.sch.id | Pengembangan Perangkat Lunak dan Gim | yazid.jpeg     |
+|  2 | Habibi               | 121090921 | habibi@gmail.com                     | TKJT                                 | habibi.png     |
+|  3 | Ambatukam            | 129012023 | ambatukam@gmail.com                  | MPLB                                 | ambatukam.jpeg |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+----------------+
+3 rows in set (0.000 sec)
+
+MariaDB [phpdasar]> select nrp mahasiswa;
+ERROR 1054 (42S22): Unknown column 'nrp' in 'field list'
+MariaDB [phpdasar]> select nrp from mahasiswa;
++-----------+
+| nrp       |
++-----------+
+| 121086278 |
+| 121090921 |
+| 129012023 |
++-----------+
+3 rows in set (0.000 sec)
+
+MariaDB [phpdasar]> select nama, nrp from mahasiswa;
++----------------------+-----------+
+| nama                 | nrp       |
++----------------------+-----------+
+| Muhammad Yazid Akbar | 121086278 |
+| Habibi               | 121090921 |
+| Ambatukam            | 129012023 |
++----------------------+-----------+
+3 rows in set (0.001 sec)
+
+MariaDB [phpdasar]> select * from mahasiswa where nrp = '121086278';
++----+----------------------+-----------+--------------------------------------+--------------------------------------+------------+
+| id | nama                 | nrp       | email                                | jurusan                              | gambar     |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+------------+
+|  1 | Muhammad Yazid Akbar | 121086278 | muhammadyazidakbar@smkwikrama.sch.id | Pengembangan Perangkat Lunak dan Gim | yazid.jpeg |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+------------+
+1 row in set (0.000 sec)
+
+MariaDB [phpdasar]> select * from mahasiswa;
++----+----------------------+-----------+--------------------------------------+--------------------------------------+----------------+
+| id | nama                 | nrp       | email                                | jurusan                              | gambar         |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+----------------+
+|  1 | Muhammad Yazid Akbar | 121086278 | muhammadyazidakbar@smkwikrama.sch.id | Pengembangan Perangkat Lunak dan Gim | yazid.jpeg     |
+|  2 | Habibi               | 121090921 | habibi@gmail.com                     | TKJT                                 | habibi.png     |
+|  3 | Ambatukam            | 129012023 | ambatukam@gmail.com                  | MPLB                                 | ambatukam.jpeg |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+----------------+
+3 rows in set (0.000 sec)
+
+MariaDB [phpdasar]> update mahasiswa set jurusan = 'OTKP' where id = 2;
+Query OK, 1 row affected (0.006 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [phpdasar]> select * from mahasiswa;
++----+----------------------+-----------+--------------------------------------+--------------------------------------+----------------+
+| id | nama                 | nrp       | email                                | jurusan                              | gambar         |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+----------------+
+|  1 | Muhammad Yazid Akbar | 121086278 | muhammadyazidakbar@smkwikrama.sch.id | Pengembangan Perangkat Lunak dan Gim | yazid.jpeg     |
+|  2 | Habibi               | 121090921 | habibi@gmail.com                     | OTKP                                 | habibi.png     |
+|  3 | Ambatukam            | 129012023 | ambatukam@gmail.com                  | MPLB                                 | ambatukam.jpeg |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+----------------+
+3 rows in set (0.000 sec)
+
+MariaDB [phpdasar]> delete from mahasiswa where id = 3;
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [phpdasar]> select * from mahasiswa;
++----+----------------------+-----------+--------------------------------------+--------------------------------------+------------+
+| id | nama                 | nrp       | email                                | jurusan                              | gambar     |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+------------+
+|  1 | Muhammad Yazid Akbar | 121086278 | muhammadyazidakbar@smkwikrama.sch.id | Pengembangan Perangkat Lunak dan Gim | yazid.jpeg |
+|  2 | Habibi               | 121090921 | habibi@gmail.com                     | OTKP                                 | habibi.png |
++----+----------------------+-----------+--------------------------------------+--------------------------------------+------------+
+2 rows in set (0.000 sec)
+
+MariaDB [phpdasar]> show tables;
++--------------------+
+| Tables_in_phpdasar |
++--------------------+
+| mahasiswa          |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [phpdasar]> drop table mahasiswa;
+Query OK, 0 rows affected (0.023 sec)
+
+MariaDB [phpdasar]> show tables;
+Empty set (0.000 sec)
+
+MariaDB [phpdasar]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpdasar           |
+| phpmyadmin         |
+| test               |
+| testting           |
++--------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [phpdasar]> drop database phpdasar;
+Query OK, 0 rows affected (0.002 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| testting           |
++--------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [(none)]> exit
+Bye
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 61
+Server version: 10.4.21-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> exit
+Bye
+
+C:\xampp\mysql\bin>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body::before {
+        content: '';
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.514),
+            rgba(0, 0, 0, 0.452)
+        ),
+        url(asset/img/bg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    body .utama {
+        background-color: rgb(255, 255, 255);
+        width: 70%;
+        margin: auto;
+        position: relative;
+        top: 200px;
+        box-shadow: 0 0 20px black;
+        height: 500px;
+    }
+    .imgheader {
+        background-image: url(asset/img/bgheader.png);
+        background-size: cover;
+        width: 70%;
+        right: 15%;
+        height: 200px;
+        background-position-y: -80px;
+        position: fixed;
+        z-index: -1;
+    }
+    .header h1 {
+        font-size: 25px;
+        padding: 10px 0 10px 20px;
+        text-align: center;
+    }
+    .header nav {
+        text-align: center;
+        color: white;
+        padding: 10px 0;
+        font-size: 15px;
+        background-color: rgb(20, 20, 20);
+    }
+
+    /* main event */
+
+    .mainevent .kanan {
+        float: left;
+        width: 70%;
+        padding: 10px 20px;
+
+    }
+    .mainevent .kiri {
+        width: 29%;
+        float: left;
+    }
+    .clear { clear: both;}
+
+    .kanan img {
+        width: 200px;
+        height: 100px;
+        float: left;
+        margin-right: 10px;
+    }
+    .kanan hr {
+        margin: 10px 0;
+    }
+    .kanan p {
+        font-weight: bold;
+    }
+    .kanan textarea {
+        border : none;
+    }
+    .kanan a {
+        text-decoration: none;
+        color: black;
+    }
+    .kanan a:hover {
+        color: red;
+    }
+
+    .kiri h3 {
+        background-color: rgb(20, 20, 20);
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 8px;
+        color: white;
+        font-size: 17px;
+    }
+    .kiri li {
+        font-weight: bold;
+    }
+
+    footer {
+        background-color: black;
+        position: relative;
+        top: 200px;
+        padding: 20px;
+        color: white;
+    }
+    </style>
+    <title>Website Anime</title>
+</head>
+<body>
+    <div class="imgheader"></div>
+    <div class="utama">
+        <div class="header">
+            <h1>--- Mengwibu bersamaku ---</h1>
+            <nav>
+                <h3>Navigasi Kosong</h3>
+            </nav>
+        </div>
+
+        <div class="mainevent">
+            <div class="kanan">
+                <a href="asset/anime/fateubw.php">
+                    <img src="asset/img/anime1.jpg" alt="">
+                    <p>Fate/stay night : Unlimited Blade Works</p>
+                </a>
+                <textarea name="anime" id="" cols="55" rows="5">Fate UBW atau Route Rin Tosaka bercerita tentang kota Fuyuki adalah kota yang dikelilingi oleh laut dan pegunungan menjadi kota untuk ritual kuno. Untuk mewujudkan mitos Cawan Suci, yang dikatakan bisa memberikan setiap keinginan dair pemiliknya. Tujuh Master memberikan tujuh roh heroik yang dipilih oleh Cawan. Roh-roh heroik atau Servants tersebut antara lain adalah: Saber, Lancer, Archer, Rider, Caster, Assasin dan Berseker. Setiap master akan membuat kontrak dengan Servant mereka dan bertarung dengan Master dan Servant lainnya sampai mati dan hanya tersisa satu pasangan yang disebut Perang Cawan Suci.</textarea>
+                <div class="clear"></div>
+                <hr>
+                <a href="asset/anime/fatestaynight.php">
+                    <img src="asset/img/anime2.jpg" alt="">
+                    <p>Fate/Stay Night BD Batch Sub Indonesia</p>
+                </a>
+                <textarea name="anime" id="" cols="55" rows="5">Fate Stay Night atau Route Saber bercerita mitos Cawan Suci, yang dikatakan bisa memberikan setiap keinginan dair pemiliknya. Tujuh Master memberikan tujuh roh heroik yang dipilih oleh Cawan. Roh-roh heroik atau Servants tersebut antara lain adalah: Saber, Lancer, Archer, Rider, Caster, Assasin dan Berseker. Setiap master akan membuat kontrak dengan Servant mereka dan bertarung dengan Master dan Servant lainnya sampai mati dan hanya tersisa satu pasangan yang disebut Perang Cawan Suci.</textarea>
+            </div>
+            <div class="kiri">
+                <h3>My Social Media</h3>
+                <li>Admin Yazz</li>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <footer>
+        <h4>Yazz803</h4>
+    </footer>
+</body>
+</html>
